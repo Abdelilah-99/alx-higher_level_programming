@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+import sys
 from calculator_1 import add, sub, mul, div
 if __name__ == "__main__":
-    import sys
     j = 0
     for i in range(1, len(sys.argv)):
         j += 1

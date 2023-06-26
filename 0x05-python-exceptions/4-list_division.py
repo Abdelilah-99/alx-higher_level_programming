@@ -4,7 +4,8 @@ def list_division(my_list_1, my_list_2, list_length):
     for i in range(list_length):
         try:
             if i < len(my_list_1) and i < len(my_list_2):
-                if not (isinstance(my_list_1[i], (int , float))) or not (isinstance(my_list_2[i], (int, float))):
+                if not (isinstance(my_list_1[i], (int, float)))\
+                        or not (isinstance(my_list_2[i], (int, float))):
                     result.append(0)
                     print("wrong type")
                 else:

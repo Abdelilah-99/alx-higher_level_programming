@@ -41,10 +41,12 @@ class Square:
 
     @property
     def position(self):
+        """we retrieving the value"""
         return self.__position
 
     @position.setter
     def position(self, value):
+        """protect the value from bad"""
         if isinstance(value, (int, tuple)) and len(value) == 2:
             x, y = value
             if x >= 0 and y >= 0:

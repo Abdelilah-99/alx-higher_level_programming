@@ -47,11 +47,9 @@ class Square:
     @position.setter
     def position(self, value):
         """protect the value from bad"""
-        if isinstance(value, (int, tuple)) and len(value) == 2:
-            x, y = value
-            if x >= 0 and y >= 0:
-                self.__position = value
-            else:
-                raise TypeError("position must be a tuple of 2 positive integers")
-        else:
+        if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
+        x, y = value
+        if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value

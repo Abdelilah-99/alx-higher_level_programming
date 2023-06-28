@@ -50,6 +50,7 @@ class Square:
         """Prints the # character using the square size and coordinates."""
         if self.__size == 0:
             print()
+            return
         else:
             for _ in range(self.__position[1]):
                 print()

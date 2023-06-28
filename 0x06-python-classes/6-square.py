@@ -10,8 +10,8 @@ class Square:
         """initialization size: int and it's the unit length of the square
         initialization position: The position of the new square.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):

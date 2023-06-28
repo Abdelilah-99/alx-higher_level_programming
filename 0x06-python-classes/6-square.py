@@ -7,13 +7,11 @@ define a classe with private attribute
 class Square:
     """a classe def for a sqr"""
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize a new square.
-        Args:
-            size (int): The size of the new square.
-            position (int, int): The position of the new square.
+        """initialization size: int and it's the unit length of the square
+        initialization position: The position of the new square.
         """
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):

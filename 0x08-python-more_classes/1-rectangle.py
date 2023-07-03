@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+"""
+rep of trg class
+"""
+
+
 class Rectangle:
-    """rep of trg class"""
     def __init__(self, width=0, height=0):
         """defining two parameter"""
         self.height = height

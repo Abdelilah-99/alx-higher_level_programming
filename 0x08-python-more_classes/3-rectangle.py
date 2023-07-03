@@ -53,9 +53,10 @@ class Rectangle:
     def __str__(self):
         """fach command str() ayakghaw aliha direct had def atakhdm"""
         s = ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                s += "#"
-            s += "\n"
+        if self.__width != 0 and self.__height != 0:
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    s += "#"
+                s += "\n"
         s = s[:-1]
         return s

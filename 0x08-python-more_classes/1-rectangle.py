@@ -3,8 +3,8 @@ class Rectangle:
     """class with 2 parameter"""
     def __init__(self, width=0, height=0):
         """defining two parameter"""
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def height(self):

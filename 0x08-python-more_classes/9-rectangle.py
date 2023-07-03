@@ -11,20 +11,19 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return cls(width=size, height=size)
+        """returns a new Rectangle instance that is a square w/ h==w==size"""
+        return cls(size, size)
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
+        """returns the biggest rectangle based on the area"""
+        if type(rect_1) is not Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
+        if type(rect_2) is not Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
-        area_1 = rect_1.area()
-        area_2 = rect_2.area()
-        if area_1 >= area_2:
+        if rect_1.area() >= rect_2.area():
             return rect_1
-        elif area_1 < area_2:
-            return rect_2
+        return rect_2
 
     def __init__(self, width=0, height=0):
         """defining two parameter"""
@@ -72,12 +71,15 @@ class Rectangle:
             return 2 * self.__width + 2 * self.__height
 
     def __str__(self):
-        """returns printable string representation of the rectangle"""
-        string = ""
+        """fach command str() ayakghaw aliha direct had def atakhdm"""
+        s = ""
         if self.__width != 0 and self.__height != 0:
-            string += "\n".join(str(self.print_symbol) * self.__width
-                                for j in range(self.__height))
-        return string
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    s += "{}".format(self.print_symbol)
+                s += "\n"
+        s = s[:-1]
+        return s
 
     def __repr__(self):
         """anakhduu repr d def w t executa b eval"""

@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 class Rectangle:
+    """class with 2 parameter"""
     def __init__(self, width=0, height=0):
+        """defining two parameter"""
         self.__width = width
         self.__height = height
 

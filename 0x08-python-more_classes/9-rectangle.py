@@ -74,6 +74,10 @@ class Rectangle:
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
+    @classmethod
+    def square(cls, size=0):
+        return cls(width=size, height=size)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
@@ -86,8 +90,3 @@ class Rectangle:
             return rect_1
         elif area_1 < area_2:
             return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """returns a new Rectangle instance that is a square w/ h==w==size"""
-        return cls(size, size)

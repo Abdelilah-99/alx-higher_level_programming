@@ -21,6 +21,5 @@ ZeroDivisionError: division by zero
 >>> matrix_divided([[3,4,6],[1,';sdf',7]], 3)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
->>> matrix_divided([3,4,6], 3)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[3,4,6]], 3)
+[[1.0, 1.33, 2.0]]

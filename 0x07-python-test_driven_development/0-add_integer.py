@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-"""returning sum of two int"""
+"""
+add_integer module
+this function adds two integers
+
+"""
 
 
-def add_integer(a, b):
-    """check if the value are not int or float"""
-    if not isinstance(a, (int, float)) or isinstance(a, bool):
+def add_integer(a, b=98):
+    """Return the integer addition of a an b
+    Raise: TypeError
+    """
+    if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)) or isinstance(b, bool):
+    if not isinstance(b, int) and not isinstance(b, float):
         raise TypeError("b must be an integer")
-    if type(b) is float:
-        b = int(b)
-    if type(a) is float:
-        a = int(a)
-    return a + b
+    return int(a) + int(b)

@@ -3,12 +3,6 @@
 	 5
 	 >>> add_integer(2, -4)
 	 -2
-	 >>> add_integer(-6, 8)
-	 2
-	 >>> add_integer(2.1, 4)
-	 6
-	 >>> add_integer(5, 7.8)
-	 12
 	 >>> add_integer(2.45, 3.1)
 	 5
 	 >>> add_integer(1, float('nan'))

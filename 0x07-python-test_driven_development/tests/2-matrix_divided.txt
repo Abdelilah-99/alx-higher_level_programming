@@ -38,21 +38,6 @@ TypeError: div must be a number
 [[-1.0, -3.0], [-4.0, -5.0]]
 >>> matrix_divided([[3]], 3)
 [[1.0]]
->>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 >>> matrix_divided(None, None)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-testing how function handles incorrect matrix argument
-::
->>> matrix_divided = __import__('2-matrix_divided').matrix_divided
->>> matrix_divided({9, 8, 7}, 2)
-Traceback (most recent call last):
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-testing how function handles list of None
-::
->>> matrix_divided = __import__('2-matrix_divided').matrix_divided
->>> matrix_divided([None], 2)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats

@@ -25,5 +25,6 @@ def matrix_divided(matrix, div):
         else:
             raise TypeError("Each row of the matrix must have the same size")
     else:
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
     return mtx

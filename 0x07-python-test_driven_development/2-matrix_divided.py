@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""def mhandlii fiha machakil d error w kan7awal n9assam matrix 3la div"""
+
+
 def matrix_divided(matrix, div):
+    """div matrix with a value"""
     mtx = []
     if isinstance(matrix, list) and all(isinstance(x, list)
                                         and all(isinstance(e, (int, float))

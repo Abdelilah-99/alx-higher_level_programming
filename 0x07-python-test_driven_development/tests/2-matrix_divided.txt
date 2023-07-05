@@ -38,3 +38,21 @@ TypeError: div must be a number
 [[-1.0, -3.0], [-4.0, -5.0]]
 >>> matrix_divided([[3]], 3)
 [[1.0]]
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 8, 7, 9], [2]], 1.5)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+testing how function handles division by 0
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [5, 6, 7]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+testing how function handles division by incorrect type
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [5, 6, 7]], "25")
+Traceback (most recent call last):
+TypeError: div must be a number

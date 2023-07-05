@@ -2,7 +2,7 @@
 """returning sum of two int"""
 
 
-def add_integer(a, b=98):
+def add_integer(a, b):
     """check if the value are not int or float"""
     if not isinstance(a, (int, float)) or isinstance(a, bool):
         raise TypeError("a must be an integer")

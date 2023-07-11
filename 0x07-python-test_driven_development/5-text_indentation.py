@@ -5,10 +5,10 @@
 def text_indentation(text):
     """Separate text after the delimiter"""
     if isinstance(text, str):
-        sentences = text.replace('?', '?|')\
-            .replace('.', '.|')\
-            .replace(':', ':|')\
-            .split('|')
+        sentences = text.replace('?', '?-')\
+            .replace('.', '.-')\
+            .replace(':', ':-')\
+            .split('-')
         for i, sentence in enumerate(sentences):
             if sentence:
                 if i != len(sentences) - 1:

@@ -18,8 +18,8 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
     """prv attribute"""
-    def __init__(self, width: int, height: int):
+    def __init__(self, width, height):
         self.__width = width
-        self.__height = height
         self.integer_validator("width", width)
+        self.__height = height
         self.integer_validator("height", height)

@@ -42,8 +42,8 @@ class Base:
         Then, it creates a filename based on the
         class name and opens a file with that name in write mode.
         It creates a list comprehension to generate
-        a list of dictionaries using the to_dictionary() method of each obje
-        ct in list_objs.
+        a list of dictionaries using the to_dictionary()
+        method of each object in list_objs.
         Finally, it calls the to_json_string() method
         on the class cls (which is Base in this case)
         and writes the resul
@@ -55,3 +55,54 @@ class Base:
         with open(f_name, "w") as f:
             dict = [obj.to_dictionary() for obj in list_objs]
             f.write(cls.to_json_string(dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Converts a JSON string representation to a list of dictionaries.
+        If the input is None or an empty string, it returns an empty list.
+        Otherwise, it uses the json.loads() function to convert the JSON string
+        to a list of dictionaries.
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Creates a new instance of the class.
+        If the class name is 'Rectangle', it creates a Rectangle instance.
+        Otherwise, it creates an instance using the default constructor.
+        Then, it updates the attributes of the instance
+        using the values from the dictionary.
+        Finally, it returns the created instance.
+        """
+        if cls.__name__ == "Rectangle":
+            abdelilah = cls(1, 1)
+        else:
+            abdelilah = cls(1)
+        abdelilah.update(**dictionary)
+        return abdelilah
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Loads a list of instances from a JSON file.
+        The filename is based on the class name (e.g., Rectangle.json).
+        If the file doesn't exist, it returns an empty list.
+        Otherwise, it reads the JSON string from the file,
+        converts it to a list of dictionaries
+        using the from_json_string method,
+        and creates instances using the create method.
+        Finally, it returns the list of instances.
+        """
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, "r") as f:
+                json_string = f.read()
+        except FileNotFoundError:
+            return []
+        lis = cls.from_json_string(json_string)
+        instance = [cls.create(**ins) for ins in lis]
+        return instance

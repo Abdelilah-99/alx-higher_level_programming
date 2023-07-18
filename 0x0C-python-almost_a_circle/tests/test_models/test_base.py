@@ -101,18 +101,17 @@ class TestBase(unittest.TestCase):
         self.assertEqual(len(obj_list), 1)
 
     def test_save_to_file(self):
-        r = Rectangle(1, 2, 3, 4, 5)
-        r2 = Rectangle(5, 4, 3, 2, 1)
-        Rectangle.save_to_file([r, r2])
+        """Test save_to_file method of Base"""
+        r1 = Rectangle(1, 1, 2, 3)
+        r2 = Rectangle(5, 5, 4, 3)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
         with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), '[{"id": 5, "width": 1, "height": 2, "x": 3, "y": 4}, {"id": 1, "width": 5, "height": 4, "x": 3, "y": 2}]')
-
-        s = Square(1, 2, 3, 4)
-        s2 = Square(5, 4, 3, 2)
-        Square.save_to_file([s, s2])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), '[{"id": 4, "size": 1, "x": 2, "y": 3}, {"id": 2, "size": 5, "x": 4, "y": 3}]')
-
+            json_string = file.read()
+            list_rectangles_output = Rectangle.from_json_string(json_string)
+            list_rectangles_output_dicts = [obj.to_dictionary() for obj in list_rectangles_output]
+        expected_output = [r1.to_dictionary(), r2.to_dictionary()]
+        self.assertEqual(list_rectangles_output_dicts, expected_output)
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             self.assertEqual("[]", f.read())

@@ -4,6 +4,7 @@ from .rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """representation of square"""
     def __init__(self, size, x=0, y=0, id=None):
         """
         Initialize a Square object with a

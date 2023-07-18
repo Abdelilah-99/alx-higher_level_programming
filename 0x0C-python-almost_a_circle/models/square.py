@@ -55,8 +55,8 @@ class Square(Rectangle):
         of the square object."""
         return {
             'id': self.id,
-            'size': self.width,
             'x': self.x,
+            'size': self.width,
             'y': self.y
         }
 

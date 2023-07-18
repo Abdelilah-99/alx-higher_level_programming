@@ -7,6 +7,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestBase(unittest.TestCase):
     '''Tests for Base class'''
 
@@ -15,7 +16,7 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         assert isinstance(b1, Base)
         assert hasattr(b1, 'id')
-        self.assertEqual (b1.id, 5)
+        self.assertEqual(b1.id, 5)
 
         b2 = Base(None)
         b3 = Base(None)
@@ -60,28 +61,29 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(1, 2)
         r_list = [r1, r2]
         r_json = Base.to_json_string([r.to_dictionary() for r in r_list])
-        r_list_deserialized = json.loads(r_json)    # Deserialize the JSON string back into a list of dictionaries,
-        r_json_reserialized = json.dumps(r_list_deserialized) # then reserialize the list and compare to the original JSON string.
+        r_list_deserialized = json.loads(r_json)
+        r_json_reserialized = json.dumps(r_list_deserialized)
         self.assertEqual(r_json, r_json_reserialized)
 
         sq1 = Square(4, 5, 6)
         sq2 = Square(1, 2)
         sq_list = [sq1, sq2]
         sq_json = Base.to_json_string([sq1.to_dictionary() for sq1 in sq_list])
-        sq_list_deserialized = json.loads(sq_json)    # Deserialize the JSON string back into a list of dictionaries,
-        sq_json_reserialized = json.dumps(sq_list_deserialized) # then reserialize the list and compare to the original JSON string.
+        sq_list_deserialized = json.loads(sq_json)
+        sq_json_reserialized = json.dumps(sq_list_deserialized)
         self.assertEqual(sq_json, sq_json_reserialized)
 
         r = Rectangle(1, 2, 3, 4, 5)
         r_dict = r.to_dictionary()
         r_json = Base.to_json_string([r_dict])
-        self.assertEqual(r_json, '[{"id": 5, "width": 1, "height": 2, "x": 3, "y": 4}]')
+        self.assertEqual(r_json, '[{"id": 5, "width": 1, '
+                                 '"height": 2, "x": 3, "y": 4}]')
 
         sq1 = Square(1, 2, 3, 4)
         sq_dict = sq1.to_dictionary()
         sq_json = Base.to_json_string([sq_dict])
-        sq_list_deserialized = json.loads(sq_json)    # Deserialize the JSON string back into a list of dictionaries,
-        sq_json_reserialized = json.dumps(sq_list_deserialized) # then reserialize the list and compare to the original JSON string.
+        sq_list_deserialized = json.loads(sq_json)
+        sq_json_reserialized = json.dumps(sq_list_deserialized)
         self.assertEqual(sq_json, sq_json_reserialized)
 
     def test_from_json_string(self):
@@ -101,17 +103,18 @@ class TestBase(unittest.TestCase):
         self.assertEqual(len(obj_list), 1)
 
     def test_save_to_file(self):
-        """Test save_to_file method of Base"""
-        r1 = Rectangle(1, 1, 2, 3)
-        r2 = Rectangle(5, 5, 4, 3)
-        list_rectangles_input = [r1, r2]
-        Rectangle.save_to_file(list_rectangles_input)
+        r = Rectangle(1, 2, 3, 4, 5)
+        r2 = Rectangle(5, 4, 3, 2, 1)
+        Rectangle.save_to_file([r, r2])
         with open("Rectangle.json", "r") as file:
-            json_string = file.read()
-            list_rectangles_output = Rectangle.from_json_string(json_string)
-            list_rectangles_output_dicts = [obj.to_dictionary() for obj in list_rectangles_output]
-        expected_output = [r1.to_dictionary(), r2.to_dictionary()]
-        self.assertEqual(list_rectangles_output_dicts, expected_output)
+            self.assertEqual(file.read(), '[{"id": 5, "width": 1, "height": 2, "x": 3, "y": 4}, {"id": 1, "width": 5, "height": 4, "x": 3, "y": 2}]')
+
+        s = Square(1, 2, 3, 4)
+        s2 = Square(5, 4, 3, 2)
+        Square.save_to_file([s, s2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[{"id": 4, "size": 1, "x": 2, "y": 3}, {"id": 2, "size": 5, "x": 4, "y": 3}]')
+
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             self.assertEqual("[]", f.read())

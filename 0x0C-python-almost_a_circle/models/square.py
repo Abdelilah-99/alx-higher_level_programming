@@ -13,7 +13,6 @@ class Square(Rectangle):
         and height of the square.
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     def __str__(self):
         """Return a string representation
@@ -24,7 +23,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """Get the size of the square."""
-        return self.__width
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -34,12 +33,8 @@ class Square(Rectangle):
         The size is used to set the width and
         height of the square.
         """
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """
@@ -51,7 +46,7 @@ class Square(Rectangle):
         if args:
             for i in range(len(args)):
                 setattr(self, attrs[i], args[i])
-        if kwargs:
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
@@ -61,6 +56,9 @@ class Square(Rectangle):
         return {
             'id': self.id,
             'x': self.x,
-            'size': self.__width,
+            'size': self.width,
             'y': self.y
         }
+
+    def area(self):
+        return self.width ** 2

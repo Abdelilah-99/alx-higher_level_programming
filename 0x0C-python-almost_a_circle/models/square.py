@@ -62,4 +62,5 @@ class Square(Rectangle):
         }
 
     def area(self):
+        """cal the area"""
         return self.width ** 2

@@ -400,6 +400,5 @@ class TestBase_load_from_file(unittest.TestCase):
             Base.load_from_file([], 1)
 
 
-
 if __name__ == "__main__":
     unittest.main()

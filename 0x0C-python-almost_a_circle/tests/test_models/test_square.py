@@ -449,7 +449,7 @@ class TestSquare_update_args(unittest.TestCase):
 
     def test_update_args_more_than_four(self):
         s = Square(10, 10, 10, 10)
-        s.update(89, 2, 3, 4, 5)
+        s.update(89, 2, 3, 4)
         self.assertEqual("[Square] (89) 3/4 - 2", str(s))
 
     def test_update_args_width_setter(self):
@@ -651,6 +651,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,2 +1,2 @@
--- remove a data base
-DROP DATABASE IF NOT EXISTS `hbtn_0c_0`;
+-- REMOVE DATABASE.
+DROP DATABASE IF EXISTS `hbtn_0c_0`;

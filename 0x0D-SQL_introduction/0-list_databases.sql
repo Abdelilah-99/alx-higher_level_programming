@@ -1,3 +1,2 @@
---show all list of database of my sql server
---because alx want it
+-- show all list of database of my sql server.
 SHOW DATABASES;

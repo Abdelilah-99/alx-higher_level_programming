@@ -1,5 +1,4 @@
 #!/usr/bin/node
-const add = function add(a, b) {
-  return a + b;
-}
+exports.add = (a, b) => a + b;
+const add = require('./13-add').add;
 console.log(add(3, 5));

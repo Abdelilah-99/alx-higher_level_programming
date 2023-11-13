@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-const myVar = "JavaScript is amazin";
+let myVar = "JavaScript is amazin";
 console.log(myVar);

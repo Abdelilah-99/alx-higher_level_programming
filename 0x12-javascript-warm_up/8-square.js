@@ -1,18 +1,20 @@
 #!/usr/bin/node
-const args = process.argv.slice(2);
+const { argv } = require('process');
+const args = argv.slice(2);
+const toInt = parseInt(args, 10);
 let output = '';
 
-if (args[0] === undefined) {
+if (toInt === undefined || isNaN(toInt)) {
   console.log('Missing size');
 }
-for (let index = 0; index < args[0]; index++) {
-  for (let index = 0; index < args[0]; index++) {
-	  output += 'X';
+for (let index = 0; index < toInt; index++) {
+  for (let index = 0; index < toInt; index++) {
+    output += 'X';
   }
-  if (index != args[0] - 1){
-	  output += '\n';
+  if (index !== toInt - 1) {
+    output += '\n';
   }
 }
-if (output != '') {
+if (output !== '') {
   console.log(output);
 }

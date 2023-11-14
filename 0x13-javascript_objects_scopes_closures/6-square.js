@@ -5,6 +5,7 @@ class Square extends ASquare {
   constructor (size) {
     super(size, size);
   }
+
   charPrint (c) {
     if (c) {
       for (let index = 0; index < this.height; index++) {

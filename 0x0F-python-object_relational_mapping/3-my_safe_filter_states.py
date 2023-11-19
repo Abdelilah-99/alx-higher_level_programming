@@ -12,7 +12,7 @@ if __name__ == '__main__':
     exe = """SELECT * FROM states
     WHERE BINARY NAME = %s
     ORDER BY id"""
-    cur.execute(exe, (state_name),)
+    cur.execute(exe, (state_name,))
     results = cur.fetchall()
     for row in results:
         print(row)

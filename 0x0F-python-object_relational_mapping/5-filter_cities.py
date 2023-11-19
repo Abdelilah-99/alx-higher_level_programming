@@ -16,5 +16,6 @@ if __name__ == '__main__':
     ORDER BY cities.id"""
     cur.execute(exe, (state_name,))
     results = cur.fetchall()
-    for row in results:
-        print(row)
+    cities = tuple(row[1] for row in results)
+    cities = ', '.join(cities)
+    print(cities)

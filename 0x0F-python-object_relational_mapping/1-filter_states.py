@@ -14,7 +14,7 @@ if __name__ == '__main__':
     db = MySQLdb.connect(user=username, host=host,
                          port=port, password=password, database=db_name)
     cur = db.cursor()
-    exe = "SELECT * FROM states WHERE WHERE UPPER(NAME) LIKE 'N%' ORDER BY id"
+    exe = "SELECT * FROM states WHERE UPPER(NAME) LIKE 'N%' ORDER BY id"
     cur.execute(exe)
     results = cur.fetchall()
     for row in results:

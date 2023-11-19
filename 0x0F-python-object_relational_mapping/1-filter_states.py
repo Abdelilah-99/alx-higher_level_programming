@@ -5,16 +5,10 @@ import sys
 import MySQLdb
 
 if __name__ == '__main__':
-    username: str = sys.argv[1]
-    password: str = sys.argv[2]
-    db_name: str = sys.argv[3]
-    host: str = "localhost"
-    port: int = 3306
-
-    db = MySQLdb.connect(user=username, host=host,
-                         port=port, password=password, database=db_name)
+    db = MySQLdb.connect(user=sys.argv[1], host="localhost",
+                         port=3306, password=sys.argv[2], database=sys.argv[3])
     cur = db.cursor()
-    exe = "SELECT * FROM states WHERE UPPER(NAME) LIKE 'N%' ORDER BY id"
+    exe = "SELECT * FROM states WHERE BINARY NAME LIKE 'N%' ORDER BY id"
     cur.execute(exe)
     results = cur.fetchall()
     for row in results:

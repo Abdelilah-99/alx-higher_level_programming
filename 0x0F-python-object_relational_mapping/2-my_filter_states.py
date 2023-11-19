@@ -9,8 +9,8 @@ if __name__ == '__main__':
                          port=3306, password=sys.argv[2], database=sys.argv[3])
     state_name = sys.argv[4]
     cur = db.cursor()
-    exe = "SELECT * FROM states WHERE NAME LIKE %s ORDER BY id"
-    cur.execute(exe, (f'{state_name}%',))
+    exe = "SELECT * FROM states WHERE BINARY NAME = '{}' ORDER BY id".format(state_name)
+    cur.execute(exe)
     results = cur.fetchall()
     for row in results:
         print(row)

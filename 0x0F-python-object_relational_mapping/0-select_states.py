@@ -12,7 +12,8 @@ if __name__ == '__main__':
     port: int = 3306
     statement: str = """SELECT * FROM states ORDER BY id"""
 
-    db = MySQLdb.connect(user=username, host=host, port=port, password=password, database=db_name)
+    db = MySQLdb.connect(user=username, host=host,
+                         port=port, password=password, database=db_name)
     cur = db.cursor()
     exe = "SELECT * FROM states ORDER BY id"
     cur.execute(exe)

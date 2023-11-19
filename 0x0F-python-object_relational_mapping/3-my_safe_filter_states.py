@@ -10,7 +10,7 @@ if __name__ == '__main__':
     state_name = sys.argv[4]
     cur = db.cursor()
     exe = """SELECT * FROM states
-    WHERE BINARY NAME = '%s'
+    WHERE BINARY NAME = %s
     ORDER BY id"""
     cur.execute(exe, (state_name),)
     results = cur.fetchall()

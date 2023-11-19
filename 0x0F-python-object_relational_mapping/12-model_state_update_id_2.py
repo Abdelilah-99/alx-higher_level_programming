@@ -21,6 +21,5 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
     state_to_up = session.query(State).filter(State.id == 2).first()
-    if state_to_up:
-        state_to_up.name = 'New Mexico'
-        session.commit()
+    state_to_up.name = 'New Mexico'
+    session.commit()

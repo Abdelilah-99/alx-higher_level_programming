@@ -11,9 +11,10 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
+    db = sys.argv[3]
     Session = sessionmaker()
     engine = create_engine(
-        f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@{"localhost"}/{sys.argv[3]}',
+        f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@{"localhost"}/{db}',
         pool_pre_ping=True,
     )
     Base.metadata.create_all(engine)

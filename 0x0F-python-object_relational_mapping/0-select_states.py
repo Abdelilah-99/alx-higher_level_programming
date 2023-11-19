@@ -10,7 +10,6 @@ if __name__ == '__main__':
     db_name: str = sys.argv[3]
     host: str = "localhost"
     port: int = 3306
-    statement: str = """SELECT * FROM states ORDER BY id"""
 
     db = MySQLdb.connect(user=username, host=host,
                          port=port, password=password, database=db_name)

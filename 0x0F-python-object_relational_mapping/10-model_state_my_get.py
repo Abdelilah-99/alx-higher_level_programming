@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    state_name = sys.argv[4]
+    state_n = sys.argv[4]
     LH = "localhost"
     Session = sessionmaker()
     engine = create_engine(
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session.configure(bind=engine)
     session = Session()
-    if (query := session.query(State).filter(State.name == state_name).first()):
+    if (query := session.query(State).filter(State.name == state_n).first()):
         print(query.id)
     else:
         print('Not found')

@@ -12,7 +12,7 @@ if __name__ == '__main__':
     exe = """SELECT cities.id, cities.name, states.name
     FROM cities
     JOIN states ON cities.state_id = states.id
-    HAVING BINARY name = %s
+    HAVING BINARY states.name = %s
     ORDER BY cities.id"""
     cur.execute(exe, (state_name,))
     results = cur.fetchall()

@@ -21,8 +21,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session.configure(bind=engine)
     session = Session()
-    query = (session.query(State)
-             .order_by(State.id)
-             .filter(State.name.contains(state_name)))
-    for state in query.all():
-        print("{}".format(state.id))
+    if query := session.query(State).filter(State.name.contains(state_name)):
+        print("{}".format(query.id))
+    else:
+        print('Not found')

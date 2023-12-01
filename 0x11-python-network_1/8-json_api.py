@@ -11,8 +11,8 @@ if __name__ == "__main__":
     letter = sys.argv[1] if len(sys.argv) > 1 else ""
     url = "http://0.0.0.0:5000/search_user"
     response = requests.post(url, {'q': letter})
+    result = response.json()
     try:
-        result = response.json()
         if result.get('id') is not None:
             print("[{}] {}".format(result.get('id'), result.get('name')))
         else:

@@ -13,7 +13,7 @@ if __name__ == "__main__":
     response = requests.post(url, {'q': letter})
     result = response.json()
     try:
-        if result is not None:
+        if result.get('id') is not None:
             print("[{}] {}".format(result.get('id'), result.get('name')))
         else:
             print("No result")
